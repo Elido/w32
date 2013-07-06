@@ -461,7 +461,7 @@ func GetWindowThreadProcessId(hwnd HWND) (HANDLE, int) {
 func MessageBox(hwnd HWND, text, caption string, flags uint) int {
 	ret, _, _ := procMessageBox.Call(
 		uintptr(hwnd),
-		uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr(title))),
+		uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr(text))),
 		uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr(caption))),
 		uintptr(flags))
 
